@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/upload-image" method="post" enctype="multipart/form-data">
+        @csrf
+        <label for="customer_id">Select Customer:</label>
+        <select name="customer_id" id="customer_id">
+            @foreach($customers as $customer)
+                <option value="{{ $customer->id }}">{{ $customer->name }}</option>
+            @endforeach
+        </select>
+        <br>
+        <label for="image">Choose Image:</label>
+        <input type="file" name="image" id="image">
+        <br>
+        <button type="submit">Upload Image</button>
+    </form>
+</body>
+</html>
